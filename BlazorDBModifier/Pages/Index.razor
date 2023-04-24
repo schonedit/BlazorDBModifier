@@ -1,60 +1,17 @@
 ﻿@page "/"
-@using BlazorDBModifier.Models
-@using BlazorDBModifier.Services
-@inject IProductService ProductService;
-
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>hi</h1>
 
-Welcome to your new app.
+@*<p role="status">Current count: @currentCount</p>
 
-@if (Products == null || Products.Count == 0)
-{
-    <span>Loading Products...</span>
-}
-else
-{
-    <ul class="list-unstyled">
-        @foreach (var item in Products)
-        {
-            <li class="media my-3">
-                <div class="media-img-wrapper mr-2">
-                    <a href="#">
-                        <img class="media-img" src="@item.ImageUrl" alt="@item.Title" />
-                    </a>
-                </div>
-                <div class="media-body">
-                    <a href="#">
-                        <h4 class="mb-0">@item.Title</h4>
-                    </a>
-                    <p>@item.Description</p>
-                    <h5 class="price">
-                        $@item.Price
-                    </h5>
-                </div>
-            </li>
-        }
-    </ul>
-}
-
-<SurveyPrompt Title="How is Blazor working for you?" />
-
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>*@
 
 @code {
-    public List<Product> Products { get; set; } = new List<Product>();
+    //private int currentCount = 0;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await GetProducts();
-    }
-
-    protected async Task GetProducts()
-    {
-        var result = await ProductService.GetProductsAsync();
-        if (result != null && result.Data != null)
-        {
-            Products = result.Data;
-        }
-    }
+    //private void IncrementCount()
+    //{
+    //    currentCount++;
+    //}
 }
